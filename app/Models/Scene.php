@@ -17,12 +17,11 @@ class Scene extends Model
     ];
 
     public function user(){
-        return $this->belongsTo('App\Models\EnplaceUser');
+        return $this->belongsTo('App\Models\EnplaceUser', 'enplace_user_id');
     }
 
     public function entities(){
         return $this->hasMany('App\Models\Entity');
     }
-
 
 }

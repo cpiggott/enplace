@@ -14,3 +14,5 @@
 Route::get('/', 'LandingController@getHome');
 
 Route::post('/scene', 'LandingController@postScene');
+
+Route::post('/scene/{id}/entity', 'EntityController@postEntity');
