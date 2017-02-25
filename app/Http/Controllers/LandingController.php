@@ -78,8 +78,8 @@ class LandingController extends Controller
     public function getScene($id, Request $request){
         $scene = Scene::with('entities')->with('user')->where('id', $id)->first();
 
-            return view('create', [
-                'scene' => $scene
-            ]);
+        return view('view', [
+            'scene' => $scene
+        ]);
     }
 }
