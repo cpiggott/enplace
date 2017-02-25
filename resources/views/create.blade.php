@@ -8,7 +8,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <style>
@@ -88,6 +88,29 @@
         </div>
       </div>
       <div class="col s12 m9 create-view">
+      <a-scene embedded>
+      <a-assets>
+        <a-mixin
+          id="marker"
+          geometry="primitive: plane; width: 0.02; height: 0.02"
+          material="color: red"
+        ></a-mixin>
+      </a-assets>
+
+
+
+      <!-- Anchors. -->
+      <a-entity position="0 0 0"
+                text="anchor: center; width: 1.5; color: white; value: [LEFT ANCHOR] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam">
+      </a-entity>
+
+
+
+      <a-sky color="#333"></a-sky>
+      <a-entity position="0 0 2">
+        <a-entity camera look-controls wasd-controls></a-entity>
+      </a-entity>
+    </a-scene>
 
       </div>
     </div>
