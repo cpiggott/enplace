@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Validator;
+use JavaScript;
 
 use Carbon\Carbon;
 use Ramsey\Uuid\Uuid;
@@ -65,7 +66,20 @@ class LandingController extends Controller
             $scene->editable_link = $edit_url;
             $scene->save();
 
-            return $scene;
+            $scene = Scene::with('entities')->with('user')->where('id', $scene_id)->first();
+
+            return view('create', [
+                'scene' => $scene
+            ]);
+
         }
+    }
+
+    public function getScene($id, Request $request){
+        $scene = Scene::with('entities')->with('user')->where('id', $id)->first();
+
+            // return view('create', [
+            //     'scene' => $scene
+            // ]);
     }
 }

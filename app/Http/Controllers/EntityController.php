@@ -15,6 +15,7 @@ class EntityController extends Controller
         $position = $request->input('position');
         $rotation = $request->input('rotation');
         $value = $request->input('value');
+        $title = $request->input('title');
 
         $entity = Entity::create([
             'scene_id' => $scene_id,
@@ -24,8 +25,23 @@ class EntityController extends Controller
         ]);
 
         $scene = Scene::with('entities')->with('user')->where('id', $scene_id)->first();
-        return $scene;
 
+        if(is_null($title)){
+            $title = "Hello, World!";
+        }
+
+        $scene->title = $title;
+        $scene->save();
+
+        return view('create', [
+            'scene' => $scene
+        ]);
+
+    }
+
+
+
+    public static function generateTextString($entity){
 
     }
 }
