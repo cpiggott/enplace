@@ -20,5 +20,9 @@ class Scene extends Model
         return $this->belongsTo('App\Models\EnplaceUser');
     }
 
+    public function entities(){
+        return $this->hasMany('App\Models\Entity');
+    }
+
 
 }

@@ -15,6 +15,12 @@ class CreateEntitiesTable extends Migration
         Schema::create('entities', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->string('position')->default('0 0 0');
+            $table->string('rotation')->default('0 0 0');
+            $table->text('value');
+            $table->integer('scene_id')->unsigned();
+            $table->foreign('scene_id')->references('id')->on('scenes');
+
         });
     }
 
