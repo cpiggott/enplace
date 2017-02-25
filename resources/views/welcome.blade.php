@@ -70,15 +70,18 @@
           <div class="col s10 offset-s1 m8 offset-m2 home-top-left-copy">
             Create a VR scene in seconds, with your content.
           </div>
-          <div class="input-field col s10 offset-s1 m6 offset-m3">
-            <input id="email" type="email" class="validate">
-            <label for="email" data-error="invalid" data-success="ok">Email</label>
-          </div>
-          <div class="col s12 home-top-left-create-btn">
-            <button class="btn waves-effect waves-light" type="submit" name="create">Create
-              <i class="material-icons right">input</i>
-            </button>
-          </div>
+          <form action="{{ url('scene') }}" method="POST" >
+              <div class="input-field col s10 offset-s1 m6 offset-m3">
+                <input id="email" type="email" name="email" class="validate">
+                <label for="email" data-error="invalid" data-success="ok">Email</label>
+              </div>
+              <div class="col s12 home-top-left-create-btn">
+                <button class="btn waves-effect waves-light" type="submit" name="create">Create
+                  <i class="material-icons right">input</i>
+                </button>
+              </div>
+          </form>
+
         </div>
       </div>
       <div class="col s12 m6 home-top-right">
