@@ -19,41 +19,38 @@
         font-family: Roboto;
         color: #484848;
       }
-      .home-title {
-        position: absolute;
-        top: 0px;
-        left: 25px;
+      .input-field {
+        margin-top: 5px;
+      }
+      .create-header {
+        padding: 10px 15px;
+        font-size: 24px;
+        border-bottom: 1px solid #cdcdcd;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
+      }
+      .enplace-title {
         font-weight: 300;
         text-transform: uppercase;
       }
-      .home-top {
+      .create-container {
         height: 100%;
+      }
+      .create-container .row {
+        margin-bottom: 5px;
+      }
+      .create-container.row {
         margin-bottom: 0px;
       }
-      .home-top-right {
+      .create-container .create-title {
+        padding-bottom: 30px;
+        border-bottom: 1px solid #cdcdcd;
+      }
+      .create-container .create-view {
         height: 100%;
         background-color: #333333;
       }
-      .home-top-left {
-        font-weight: 100;
-      }
-      .home-top-left .home-top-left-copy {
-        color: #acacac;
-        font-size: 32px;
-        text-align: center;
-        margin-bottom: 120px;
-      }
-      .home-top-left input[type=email] {
-        font-size: 1.3rem;
-        height: 2.7rem;
-      }
-      .home-top-left .input-field label:not(.label-icon).active {
-        font-size: 1rem;
-      }
-      .home-top-left .input-field label {
-        font-size: 1.3rem;
-      }
-      .home-top-left .home-top-left-create-btn {
+      .create-title-btn, .create-add-btn {
         text-align: center;
       }
     </style>
@@ -63,25 +60,34 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
-    <h3 class="home-title">Enplace</h3>
-    <div class="row home-top valign-wrapper">
-      <div class="col s12 m6 home-top-left">
-        <div class="row valign">
-          <div class="col s10 offset-s1 m8 offset-m2 home-top-left-copy">
-            Create a VR scene in seconds, with your content.
+
+    <div class="row create-container">
+      <div class="col s12 m3">
+        <div class="row create-header">
+          <div class="enplace-title">Enplace</div>
+        </div>
+        <div class="row create-title">
+          <div class="input-field col s10 offset-s1">
+            <input id="title" type="text" name="scene_id" class="validate">
+          <label for="title">Title</label>
           </div>
-          <div class="input-field col s10 offset-s1 m6 offset-m3">
-            <input id="email" type="email" class="validate">
-            <label for="email" data-error="invalid" data-success="ok">Email</label>
+          <div class="col s12 create-title-btn">
+            <button class="btn waves-effect waves-light" type="submit" name="create">Save</button>
           </div>
-          <div class="col s12 home-top-left-create-btn">
-            <button class="btn waves-effect waves-light" type="submit" name="create">Create
-              <i class="material-icons right">input</i>
+        </div>
+        <div class="row create-add">
+          <div class="input-field col s10 offset-s1">
+            <textarea id="content" name="value" class="materialize-textarea"></textarea>
+            <label for="contect">Content</label>
+          </div>
+          <div class="col s12 create-add-btn">
+            <button class="btn waves-effect waves-light" type="submit" name="create">Add
+              <i class="material-icons right">done</i>
             </button>
           </div>
         </div>
       </div>
-      <div class="col s12 m6 home-top-right">
+      <div class="col s12 m9 create-view">
 
       </div>
     </div>
