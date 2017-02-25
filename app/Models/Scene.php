@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Scene extends Model
 {
-    protected $table = 'scences';
+    protected $table = 'scenes';
 
     protected $fillable = [
         'title',

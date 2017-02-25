@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'LandingController@getHome');
+
+Route::post('/scene', 'LandingController@postScene');
