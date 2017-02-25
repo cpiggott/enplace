@@ -20,6 +20,10 @@ class LandingController extends Controller
         return view('welcome');
     }
 
+    public function showHello(){
+        return view('create');
+    }
+
     public function postScene(Request $request){
 
         $validator = Validator::make($request->all(), [
