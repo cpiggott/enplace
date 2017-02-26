@@ -77,7 +77,7 @@
     </script>
 
     <div class="row create-container">
-      <div class="col s12 m3">
+      <div class="col s12 l3">
         <div class="row create-header">
           <div class="enplace-title">Enplace</div>
         </div>
@@ -141,7 +141,7 @@
           </form>
         </div>
       </div>
-      <div class="col s12 m9 create-view">
+      <div class="col s12 l9 create-view">
         <a-scene embedded>
           <a-assets>
             <a-mixin

@@ -78,7 +78,7 @@
         </div>
         <div class="row home-body">
           <div class="col s10 offset-s1 m8 offset-m2 home-left-copy">
-            Create a VR scene in seconds, with your content.
+            Create a <span style="font-weight:300;">VR scene</span> in seconds, with <span style="font-weight:300;">your content</span>.
           </div>
           <form action="{{ url('scene') }}" method="POST" >
               <div class="input-field col s10 offset-s1 m6 offset-m3">
