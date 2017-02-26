@@ -82,7 +82,7 @@
           <div class="enplace-title">Enplace</div>
         </div>
         <div class="row create-title">
-          <div class="input-field col s12">
+          <div class="input-field col s12 m8 offset-m2">
             <input id="title" type="text" name="scene_id" value="{{$scene->title}}">
             <label for="title">Title</label>
           </div>
@@ -91,11 +91,11 @@
           </div>
         </div>
         <div class="row create-links">
-          <div class="input-field col s12">
+          <div class="input-field col s12 m8 offset-m2">
             <input disabled value="{{ $scene->shareable_link }}" id="disabled" type="text" class="validate">
             <label for="disabled">Share URL</label>
           </div>
-          <div class="input-field col s12">
+          <div class="input-field col s12 m8 offset-m2">
             <input disabled value="{{ $scene->editable_link }}" id="disabled" type="text" class="validate">
             <label for="disabled">Edit URL - Keep secret, or not</label>
           </div>
@@ -103,12 +103,12 @@
         <div class="row create-add">
             <form action="{{ url('scene/' . $scene->id . '/entity') }}" method="POST" >
               <div class="col s12 create-add-title">Add Element</div>
-              <div class="input-field col s12">
+              <div class="input-field col s12 m8 offset-m2">
                 <textarea placeholder="Enter text here" id="content" name="value" class="materialize-textarea"></textarea>
                 <label for="content">Content</label>
               </div>
 
-              <div class="input-field col s12">
+              <div class="input-field col s12 m8 offset-m2">
                 <select name="position">
                   <option value="" disabled selected>Choose</option>
                   <option value="1">Top Left</option>
