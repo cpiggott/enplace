@@ -19,5 +19,7 @@ Route::get('/scene/{id}', 'LandingController@getScene');
 
 Route::post('/scene/{id}/entity', 'EntityController@postEntity');
 
+Route::get('/scene/{id}/edit/{id2}', 'LandingController@getEdit');
+
 
 Route::get('/hello', 'LandingController@showHello');

@@ -10,7 +10,7 @@ use App\Models\Scene;
 
 class EntityController extends Controller
 {
-    public function postEntity(Request $request){
+    public function postEntity($id, Request $request){
         //position xyz
         //position x - left right
         //position y - down up
@@ -20,9 +20,10 @@ class EntityController extends Controller
         //rotation x tilt up/down
         //rotation y rotate left right
         //rotation z clocks
-        $scene_id = $request->input('scene_id');
+
+        $scene_id = $id;
         $position = $this->positionCalc($request->input("position"));
-        $rotation = $this->rotationCalc($request->input("rotation"));
+        $rotation = 0;
         $value = $request->input('value');
         $title = $request->input('title');
 

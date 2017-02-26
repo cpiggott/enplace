@@ -83,7 +83,7 @@
         </div>
         <div class="row create-title">
           <div class="input-field col s12">
-            <input id="title" type="text" name="scene_id">
+            <input id="title" type="text" name="scene_id" value="{{$scene->title}}">
             <label for="title">Title</label>
           </div>
           <div class="col s12 create-title-btn">
@@ -92,59 +92,53 @@
         </div>
         <div class="row create-links">
           <div class="input-field col s12">
-            <input disabled value="URL" id="disabled" type="text" class="validate">
+            <input disabled value="{{ $scene->shareable_link }}" id="disabled" type="text" class="validate">
             <label for="disabled">Share URL</label>
           </div>
           <div class="input-field col s12">
-            <input disabled value="URL" id="disabled" type="text" class="validate">
+            <input disabled value="{{ $scene->editable_link }}" id="disabled" type="text" class="validate">
             <label for="disabled">Edit URL - Keep secret, or not</label>
           </div>
         </div>
         <div class="row create-add">
-          <div class="col s12 create-add-title">Add Element</div>
-          <div class="input-field col s12">
-            <textarea placeholder="Enter text here" id="content" name="value" class="materialize-textarea"></textarea>
-            <label for="content">Content</label>
-          </div>
-          <!-- <div class="input-field col s12">
-            <select>
-              <option value="1" selected>Front</option>
-              <option value="2">Left</option>
-              <option value="3">Right</option>
-              <option value="4">Behind</option>
-            </select>
-            <label>Direction</label>
-          </div> -->
-          <div class="input-field col s12">
-            <select>
-              <option value="" disabled selected>Choose</option>
-              <option value="1">Top Left</option>
-              <option value="2">Top Center</option>
-              <option value="3">Top Right</option>
-              <option value="4">Middle Left</option>
-              <option value="5">Middle Center</option>
-              <option value="6">Middle Right</option>
-              <option value="7">Bottom Left</option>
-              <option value="8">Bottom Center</option>
-              <option value="9">Bottom Right</option>
-            </select>
-            <label>Postion</label>
-          </div>
-          <div class="input-field col s12">
-            <select>
-              <option value="1" selected>None</option>
-              <option value="2">Tilt Up</option>
-              <option value="3">Tilt Left</option>
-              <option value="4">Tilt Right</option>
-              <option value="5">Tilt Down</option>
-            </select>
-            <label>Rotate</label>
-          </div>
-          <div class="col s12 create-add-btn">
-            <button class="btn waves-effect waves-light" type="submit" name="create">Add
-              <i class="material-icons right">done</i>
-            </button>
-          </div>
+            <form action="{{ url('scene/' . $scene->id . '/entity') }}" method="POST" >
+              <div class="col s12 create-add-title">Add Element</div>
+              <div class="input-field col s12">
+                <textarea placeholder="Enter text here" id="content" name="value" class="materialize-textarea"></textarea>
+                <label for="content">Content</label>
+              </div>
+
+              <div class="input-field col s12">
+                <select name="position">
+                  <option value="" disabled selected>Choose</option>
+                  <option value="1">Top Left</option>
+                  <option value="2">Top Center</option>
+                  <option value="3">Top Right</option>
+                  <option value="4">Middle Left</option>
+                  <option value="5">Middle Center</option>
+                  <option value="6">Middle Right</option>
+                  <option value="7">Bottom Left</option>
+                  <option value="8">Bottom Center</option>
+                  <option value="9">Bottom Right</option>
+                </select>
+                <label>Postion</label>
+              </div>
+              <!-- <div class="input-field col s12">
+                <select name="rotation">
+                  <option value="1" selected>None</option>
+                  <option value="2">Tilt Up</option>
+                  <option value="3">Tilt Left</option>
+                  <option value="4">Tilt Right</option>
+                  <option value="5">Tilt Down</option>
+                </select>
+                <label>Rotate</label>
+              </div> -->
+              <div class="col s12 create-add-btn">
+                <button class="btn waves-effect waves-light" type="submit" name="create">Add
+                  <i class="material-icons right">done</i>
+                </button>
+              </div>
+          </form>
         </div>
       </div>
       <div class="col s12 m9 create-view">
@@ -158,16 +152,20 @@
       </a-assets>
 
       @if(count($scene->entities) == 0)
-      <a-entity position="0 0 0"
-                text="anchor: center; color: white; value: Add an element in the side panel. You can set the position and what it says. This is a 3D area, so feel free to move around with around with the arrow keys and drag with your mouse.">
+      <a-entity position="0 0 -1"
+      geometry='primitive: plane; width: 0.95; height: 0.95;'
+      material='color: white'
+                text="width: 0.8; align: center; wordCount: 25; anchor: center; color: #484848; value: This is an element, in your VR scene! Use Add Element in the left sidebar to create with your own content. Show what you make to anyone with the Share URL.">
       </a-entity>
       @endif
 
       @foreach($scene->entities as $entity)
       <!-- Anchors. -->
           <a-entity position="{{ $entity->position }}"
+              geometry='primitive: plane; width: 0.95; height: 0.95;'
+              material='color: white'
               rotation="{{ $entity->rotation }}"
-                    text="anchor: center; color: white; value: {{ $entity->value }}">
+                    text="width: 0.8; align: center; wordCount: 25; anchor: center; color: #484848; value: {{ $entity->value }}">
           </a-entity>
       @endforeach
 

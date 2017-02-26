@@ -82,4 +82,18 @@ class LandingController extends Controller
             'scene' => $scene
         ]);
     }
+
+    public function getEdit($id, $id2, Request $request){
+        $scene = Scene::with('entities')->with('user')->where('id', $id)->where('uuid', $id2)->first();
+
+        if(is_null($scene)){
+            return redirect('/');
+        }
+
+
+        return view('create', [
+            'scene' => $scene
+        ]);
+
+    }
 }
