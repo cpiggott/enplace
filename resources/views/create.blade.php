@@ -142,43 +142,39 @@
         </div>
       </div>
       <div class="col s12 m9 create-view">
-      <a-scene embedded>
-      <a-assets>
-        <a-mixin
-          id="marker"
-          geometry="primitive: plane; width: 0.02; height: 0.02"
-          material="color: red"
-        ></a-mixin>
-      </a-assets>
+        <a-scene embedded>
+          <a-assets>
+            <a-mixin
+              id="marker"
+              geometry="primitive: plane; width: 0.02; height: 0.02"
+              material="color: red"
+            ></a-mixin>
+          </a-assets>
 
-      @if(count($scene->entities) == 0)
-      <a-entity position="0 0 -1"
-      geometry='primitive: plane; width: 0.95; height: 0.95;'
-      material='color: white'
-                text="width: 0.8; align: center; wordCount: 25; anchor: center; color: #484848; value: This is an element, in your VR scene! Use Add Element in the left sidebar to create with your own content. Show what you make to anyone with the Share URL.">
-      </a-entity>
-      @endif
-
-      @foreach($scene->entities as $entity)
-      <!-- Anchors. -->
-          <a-entity position="{{ $entity->position }}"
-              geometry='primitive: plane; width: 0.95; height: 0.95;'
-              material='color: white'
-              rotation="{{ $entity->rotation }}"
-                    text="width: 0.8; align: center; wordCount: 25; anchor: center; color: #484848; value: {{ $entity->value }}">
+          @if(count($scene->entities) == 0)
+          <a-entity position="0 0 -1"
+          geometry='primitive: plane; width: 0.95; height: 0.95;'
+          material='color: white'
+                    text="width: 0.8; align: center; wordCount: 25; anchor: center; color: #484848; value: This is an element, in your VR scene! Use Add Element in the left sidebar to create with your own content. Show what you make to anyone with the Share URL.">
           </a-entity>
-      @endforeach
+          @endif
 
+          @foreach($scene->entities as $entity)
+          <!-- Anchors. -->
+              <a-entity position="{{ $entity->position }}"
+                  geometry='primitive: plane; width: 0.95; height: 0.95;'
+                  material='color: white'
+                  rotation="{{ $entity->rotation }}"
+                        text="width: 0.8; align: center; wordCount: 25; anchor: center; color: #484848; value: {{ $entity->value }}">
+              </a-entity>
+          @endforeach
 
-
-      <a-sky color="#333"></a-sky>
-      <a-entity position="0 0 0">
-        <a-entity camera look-controls wasd-controls></a-entity>
-      </a-entity>
-    </a-scene>
-
+          <a-sky color="#333"></a-sky>
+          <a-entity position="0 0 0">
+            <a-entity camera look-controls wasd-controls></a-entity>
+          </a-entity>
+        </a-scene>
       </div>
     </div>
-
   </body>
 </html>
