@@ -78,8 +78,22 @@ class LandingController extends Controller
     public function getScene($id, Request $request){
         $scene = Scene::with('entities')->with('user')->where('id', $id)->first();
 
-            return view('create', [
-                'scene' => $scene
-            ]);
+        return view('view', [
+            'scene' => $scene
+        ]);
+    }
+
+    public function getEdit($id, $id2, Request $request){
+        $scene = Scene::with('entities')->with('user')->where('id', $id)->where('uuid', $id2)->first();
+
+        if(is_null($scene)){
+            return redirect('/');
+        }
+
+
+        return view('create', [
+            'scene' => $scene
+        ]);
+
     }
 }
