@@ -4,7 +4,7 @@
     <title>Enplace - Create</title>
     <meta name="description" content="Enplace - CMS for A-Frame">
 
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
